@@ -37,11 +37,11 @@ end
 
 local function get(key)
     local data = http.get("https://cc.tetraaa.fr?api_key=" .. private.api_key).readAll()
-    return textutils.unserialise(data)[key]
+    return textutils.unserialiseJSON(data)[key]
 end
 
 local function post(key, value)
-    http.post("https://cc.tetraaa.fr?api_key=" .. private.api_key, textutils.serialise({ [key] = value }), { ["Content-Type"] = "application/json" })
+    http.post("https://cc.tetraaa.fr?api_key=" .. private.api_key, textutils.serialiseJSON({ [key] = value }), { ["Content-Type"] = "application/json" })
 end
 
 
