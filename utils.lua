@@ -1,5 +1,3 @@
-local private = require("private")
-
 local function cls()
     term.clear()
     term.setCursorPos(1, 1)
@@ -43,7 +41,7 @@ local function get(key)
 end
 
 local function post(key, value)
-    http.post("https://cc.tetraaa.fr?api_key=" .. private.api_key, textutils.serialise({ [key] = value }))
+    http.post("https://cc.tetraaa.fr?api_key=" .. private.api_key, textutils.serialise({ [key] = value }), { ["Content-Type"] = "application/json" })
 end
 
 
