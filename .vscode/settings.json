@@ -4,6 +4,7 @@
         "colors",
         "peripheral",
         "sleep",
-        "http"
+        "http",
+        "textutils"
     ]
 }

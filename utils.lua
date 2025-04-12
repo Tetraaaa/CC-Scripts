@@ -1,3 +1,5 @@
+local private = require("private")
+
 local function cls()
     term.clear()
     term.setCursorPos(1, 1)
@@ -26,14 +28,23 @@ local function wrap(name)
             return peripheral.wrap(first_peripheral)
         end
         return term
-    else 
+    else
         if peripheral.isPresent(name) then
             return peripheral.wrap(name)
-            else
+        else
             return term
         end
     end
 end
 
+local function get(key)
+    local data = http.get("https://cc.tetraaa.fr?api_key=" .. private.api_key).readAll()
+    return textutils.unserialise(data)[key]
+end
 
-return { cls = cls, write_center = write_center, wrap = wrap }
+local function post(key, value)
+    http.post("https://cc.tetraaa.fr?api_key=" .. private.api_key, textutils.serialise({ [key] = value }))
+end
+
+
+return { cls = cls, write_center = write_center, wrap = wrap, get = get, post = post }
