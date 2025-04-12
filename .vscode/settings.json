@@ -3,6 +3,7 @@
         "term",
         "colors",
         "peripheral",
-        "sleep"
+        "sleep",
+        "http"
     ]
 }
