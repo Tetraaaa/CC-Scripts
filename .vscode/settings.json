@@ -5,6 +5,7 @@
         "peripheral",
         "sleep",
         "http",
-        "textutils"
+        "textutils",
+        "get_first_peripheral"
     ]
 }
